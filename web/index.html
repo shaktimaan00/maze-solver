@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Maze Lab — Generators + Solvers (Canvas)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="panel">
+      <h1>Maze Lab</h1>
+      <section>
+        <h2>Generation</h2>
+        <label>Algorithm
+          <select id="genAlg">
+            <option value="dfs">Randomized DFS (Backtracker)</option>
+            <option value="prim">Randomized Prim</option>
+          </select>
+        </label>
+        <label>Width <input id="width" type="number" min="5" max="201" step="2" value="41" /></label>
+        <label>Height <input id="height" type="number" min="5" max="201" step="2" value="31" /></label>
+        <label>Seed <input id="seed" type="number" value="42" /></label>
+        <label>Block (thickness) <input id="block" type="number" min="1" max="4" step="1" value="2" /></label>
+        <label>Show grid <input id="showGrid" type="checkbox" checked /></label>
+        <div class="row">
+          <button id="btnGenerate">Generate</button>
+          <button id="btnReplay">Replay</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Solving</h2>
+        <label>Solver
+          <select id="solver">
+            <option value="bfs">BFS</option>
+            <option value="dfs">DFS</option>
+            <option value="astar">A*</option>
+          </select>
+        </label>
+        <div class="row">
+          <button id="btnSolve">Solve</button>
+          <button id="btnClearPath">Clear Path</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Animation</h2>
+        <label>Gen speed (cells/s) <input id="genSpeed" type="range" min="10" max="2000" value="400" /></label>
+        <label>Solver speed (cells/s) <input id="solverSpeed" type="range" min="10" max="2000" value="800" /></label>
+        <label>FPS cap <input id="fpsCap" type="number" min="15" max="120" step="1" value="60" /></label>
+        <div class="row">
+          <button id="btnPause">Pause</button>
+          <button id="btnStep">Step</button>
+          <button id="btnFF">Fast-Forward</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>Keyboard</h2>
+        <div class="kbd">
+          G: Generate &nbsp; | &nbsp; R: Replay &nbsp; | &nbsp; S: Solve &nbsp; | &nbsp; C: Clear Path<br/>
+          Space: Pause/Resume &nbsp; | &nbsp; N: Step &nbsp; | &nbsp; F: Fast-Forward
+        </div>
+      </section>
+
+      <footer>
+        <div id="status"></div>
+      </footer>
+    </aside>
+
+    <main class="stage">
+      <canvas id="canvas" width="1280" height="800"></canvas>
+      <div id="hoverInfo" class="hover"></div>
+    </main>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
