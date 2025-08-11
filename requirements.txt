@@ -1,3 +1,0 @@
-# Minimal requirements for the project
-# Stdlib-only for CLI; Pygame is required for visualization.
-pygame==2.6.0
